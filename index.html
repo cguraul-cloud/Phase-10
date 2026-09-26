@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Phase 10">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Phase 10</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-button" id="settingsBtn" aria-label="Settings">⚙️</button>
+      <div class="brand">PHASE 10</div>
+      <button class="icon-button" id="quickScoreBtn" aria-label="Enter scores">＋</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">SCOREBOARD</div>
+          <h1>Round <span id="roundNumber">1</span></h1>
+          <div class="players-count" id="playersCount">0 players</div>
+        </div>
+        <div class="hero-icon">▤</div>
+      </section>
+
+      <button class="primary-button" id="scoreButton">
+        <span>＋</span><strong>Enter Round Scores</strong><span class="arrow">›</span>
+      </button>
+
+      <section id="scoreboard" class="scoreboard"></section>
+
+      <button class="secondary-button" id="addPlayerBtn">＋ Add Player</button>
+
+      <p class="hint">A score under 50 advances a player to the next phase.</p>
+    </main>
+  </div>
+
+  <div class="sheet-backdrop" id="backdrop"></div>
+
+  <section class="sheet" id="scoreSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2>Score Round <span id="scoreRound"></span></h2>
+      <button class="close-button" data-close>Done</button>
+    </div>
+    <div id="scoreInputs"></div>
+    <p class="sheet-hint">Under 50 = advance phase</p>
+    <button class="primary-button save-round" id="saveRound">Save Round</button>
+  </section>
+
+  <section class="sheet" id="playerSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2>New Player</h2>
+      <button class="close-button" data-close>Cancel</button>
+    </div>
+    <label class="field-label">Player name</label>
+    <input class="name-input" id="newPlayerName" maxlength="24" autocomplete="off" placeholder="Player name">
+    <button class="primary-button save-round" id="savePlayer">Add Player</button>
+  </section>
+
+  <section class="sheet detail-sheet" id="detailSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2 id="detailName">Player</h2>
+      <button class="close-button" data-close>Done</button>
+    </div>
+    <div id="detailContent"></div>
+  </section>
+
+  <section class="sheet" id="settingsSheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h2>Game Settings</h2>
+      <button class="close-button" data-close>Done</button>
+    </div>
+    <button class="danger-button" id="resetGame">Reset Game</button>
+    <p class="sheet-hint">Player names are kept, but all scores and phase progress are cleared.</p>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
